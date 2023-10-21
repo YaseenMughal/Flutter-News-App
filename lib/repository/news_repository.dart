@@ -12,7 +12,7 @@ class NewsRepository {
     // 'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=d19456fff0cb4d43a39a76d4c58e9047';
     print(url);
     final response = await http.get(Uri.parse(url));
-    print("Successfully get channel response");
+    print("Successfully get channel response:-  ${response.body}");
     if (response.statusCode == 200) {
       final body = jsonDecode(response.body.toString());
       return NewsChannelHeadlinesModel.fromJson(body);
@@ -26,7 +26,7 @@ class NewsRepository {
         'https://newsapi.org/v2/everything?q=${category}&apiKey=d19456fff0cb4d43a39a76d4c58e9047';
     print(url);
     final response = await http.get(Uri.parse(url));
-    print("Successfully get category response");
+    print("Successfully get category response:-  ${response.body}");
     if (response.statusCode == 200) {
       final body = jsonDecode(response.body.toString());
       return CategoriesNewsModel.fromJson(body);
